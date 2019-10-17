@@ -49,14 +49,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	// get the github.com/rs/zerolog.Event type
+	// get the github.com/pickjunk/zerolog.Event type
 	event := getEvent(p)
 	if event == nil {
-		fmt.Fprintln(os.Stderr, "Error: github.com/rs/zerolog.Event declaration not found, maybe zerolog is not imported in the scanned package?")
+		fmt.Fprintln(os.Stderr, "Error: github.com/pickjunk/zerolog.Event declaration not found, maybe zerolog is not imported in the scanned package?")
 		os.Exit(1)
 	}
 
-	// get all selections (function calls) with the github.com/rs/zerolog.Event (or pointer) receiver
+	// get all selections (function calls) with the github.com/pickjunk/zerolog.Event (or pointer) receiver
 	selections := getSelectionsWithReceiverType(p, event)
 
 	// print the violations (if any)
